@@ -1,16 +1,15 @@
-<section class="orders-show">
-
-  <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
-
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order, <%= current_user.first_name %>!
-    <p><div><%= current_user.email %></div></p>
-    </h4>
-
-  </div>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: <%= @order.user %>.<br>
+    </p>
+   
+    
   <div class="panel panel-default items">
   <table class="table table-bordered">
     <thead>
@@ -23,7 +22,7 @@
     </thead>
     <tbody>
       <% @order.line_items.each do |item| %>
-        <%= render 'item', item: item %>
+        <%= render 'orders/item', item: item %>
       <% end %>
     </tbody>
     <tfoot>
@@ -37,8 +36,9 @@
       </tr>
     </tfoot>
   </table>
+  <h2>Order successfully placed></h2>
   </div>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
-</section>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

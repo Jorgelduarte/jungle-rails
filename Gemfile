@@ -35,6 +35,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
+gem 'responders'
+gem 'letter_opener', group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
