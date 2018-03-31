@@ -22,10 +22,43 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <br />
+          <% if current_user %>
+          <dd><h4> -----> Give your review <-----</h4></dd>
+          <%= form_for :reviews, url: "/products/#{@product.id}/reviews" do |f| %>
+            <dt> <%= f.label 'Description' %>:</dt>
+            <dd><%= f.text_area :description, size: "50x4" %></dd>
+            <dt> <%= f.label 'Rating' %>:</dt>
+            <dd><%= f.select :rating, options_for_select([1, 2, 3, 4, 5]) %></dd>
+            <dd><%= f.submit %></dd>
+          <% end %>  
+          <% end %>
         </dl>
       </div>
-    </div>
-
+    </div> 
   </article>
-
+  <article class="product-detail">
+    <h5> --------> TOP REVIEWS <-------- <h5>
+    <div class="row">
+      <div class="col-sm-8">
+        <% if @product.reviews.size == 0 %>
+          <h4> This product doen't have review </h4>
+        <%else%>
+          <dl class="dl-horizontal">
+            <% @product.reviews.each do |review| %>
+            <dt>Name</dt> <dd><%= review.user.first_name %></dd>
+            <dt>Description</dt> <dd><%= review.description %></dd>
+            <dt>Rating</dt> <dd><%= review.rating %></dd>
+            
+            <% if review.user_id == current_user.id %>
+              <dd><%= link_to 'Delete', products_review_remove_path(:id=>review.id, :products_id=>@product.id), method: :delete %><dd>
+            <% end %>
+            <br />
+            <%end%>
+          </dl>
+          
+        <%end%>
+      </div>
+    </div> 
+  </article>
 </section>

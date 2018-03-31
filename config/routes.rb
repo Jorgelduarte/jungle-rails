@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     get '/signup' => 'users#new'
     post '/users' => 'users#create'
 
+    post '/products/:products_id/reviews'=> 'reviews#create', :as => 'products_reviews'
+    delete '/products/:products_id/reviews/review_id'=> 'reviews#destroy', :as => 'products_review_remove'
+
   resource :cart, only: [:show] do
     put    :add_item
     delete :remove_item
