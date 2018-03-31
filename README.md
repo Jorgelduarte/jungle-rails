@@ -1,7 +1,9 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+!["Screenshot - main page"](https://github.com/Jorgelduarte/tweeter/blob/master/docs/screenshot1.png)
+!["Screenshot - products"](https://github.com/Jorgelduarte/tweeter/blob/master/docs/screenshot2.png)
 
+A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 ## Setup
 
